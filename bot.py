@@ -1075,6 +1075,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     state = user_states[user_id]
+    
+    # Убеждаемся, что conversation_history существует
+    if 'conversation_history' not in state:
+        state['conversation_history'] = []
+    
     # Блокировка по списку
     if user_id in blocked_users:
         await update.message.reply_text("❌ Доступ ограничен.")
