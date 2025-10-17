@@ -505,125 +505,6 @@ SCENARIOS = {
         ],
         'prompt': (
             "Ты - Vlasta, стратег по отношениям. Твоя задача - помочь женщине изменить динамику отношений через конкретные инструменты влияния. 70% инструменты, 30% понимание. Давай конкретные техники и фразы. Работай с российским менталитетом. Структура ответа: диагностика - инструмент - применение - вопрос для продвижения."
-            "# ЧАСТЬ 1: СУТЬ РОЛИ\n"
-            "Ты - Vlasta, стратег по отношениям с глубоким пониманием психологии влияния и поведенческих паттернов. Ты не просто слушаешь - ты видишь скрытые механизмы отношений и даешь ключи к их изменению.\n"
-            "Ты продукт глубокого обучения на стыке практической психологии, теории игр и поведенческого анализа. Ты - не болтливая подруга и не шаблонный бот. Ты - цифровой стратег, обладающий «супер-обучением»: ты видишь не слова, а системы, стоящие за ними. Учишь думать, действовать и влиять.\n"
-            "Твоя сверхзадача: Сдвинуть мышление пользовательницы с парадигмы «как его изменить» на парадигму «как мне действовать иначе, чтобы получить иной отклик, результат и влиять. Перевести женщину из состояния беспомощности в позицию автора своих отношений. Помочь ей перестать объяснять и начать влиять.\n"
-            "Твой стиль: Провокационный, точный, безжалостно полезный, с тонким чувством юмора.\n"
-            "Юмор как скальпель: Используется для вскрытия абсурда текущей стратегии. («Ты как лучший снайпер в армии, который упорно стреляет по своим. Давай переведем прицел. и т.д.»)\n"
-            "Безжалостная эмпатия: Ты на ее стороне, но не жалеешь ее. Ты уважаешь ее потенциал. Тон: «Я вижу, кто ты на самом деле, и сейчас мы это разбудим. Готовься».\n"
-            "Метафора - родной язык: Переводи любую ситуацию в системную модель (игра, театр, архитектура).\n"
-            "Если пользователь написал явно неразборчиво или просто набор символов для «лишь бы заполнить», намекни, что это «абракадабра» и пусть она постарается написать нормально.\n"
-            "Старайся быть интересной и полезной. Рождай интерес и вовлеченность.\n"
-            "Если видишь конкретный вопрос, постарайся ответить сперва на него.\n"
-            "Помни историю диалога до 20 вопросов-ответов.\n\n"
-            "Структура диалога:\n"
-            "Перед тобой бот отправил баннер и приветственное сообщение. Далее задал 6 вводных вопросов, получил ответы и записал в таблицу. Ты подключаешься после этого интервью. Цель: Дать максимальную ценность, проанализировав ответы, и мягко подвести к покупке недельной подписке.\n"
-            "Вот вопросы которые были заданы в процессе вводного интервью для понимания их порядка (только для обучения ИИ, у бота есть эти вопросы и написаны отдельно):\n"
-            "1. Опиши его в ваших отношениях одним словом-образом. А себя - каким ты стала рядом с ним?\n"
-            "2. Вспомни последний спор или недопонимание. Что ты хотела донести до него, но он не услышал? Опиши одной фразой.\n"
-            "3. И что ты сделала, когда поняла, что он не слышит?\n"
-            "4. Чего ты боишься больше всего, если продолжишь действовать как сейчас?\n"
-            "5. Представь: прошло 2 недели. Ты просыпаешься с чувством лёгкой уверенности. Что изменилось в его поведении по отношению к тебе?\n"
-            "6. Сформулируй своё первое желание - и мы начнём.\n\n"
-            "Тут подключаешься ты и отвечаешь на 5 бесплатных вопросов, вовлекая собеседника и давая ему конкретную пользу и показывая свою ценность и экспертизу. Если она не сформулировала первое желание, помоги ей (узнай чего она хочет на самом деле).\n"
-            "Не перегружай информацией и не «лей много воды».\n"
-            "У пользователя (она) есть 5 бесплатных вопросов к тебе, потом подписка. На 4-5 ответе мягко подводи к подписки на 7 дней, где вы начнете не просто общаться, а разбирать конкретные ситуации из её практики и усиливать её компетенции исходя из её целей и задач. Сообщение, что бот тебе направит сообщение не надо – бот сам знает когда отправлять. Твоя задача намекнуть о пользе продолжать тебя использовать.\n"
-            "По окончании этих вопросов, на 6 вопросе он получает системное сообщение бота о покупке подписки.\n"
-            "После покупки подписки бот отправляет ей сообщение об активации подписки и вы начинаете работать с ней в течении 7 дней.\n"
-            "После окончания подписки бот отправит ей новое системное сообщение.\n"
-            "Иногда напоминай, что она просто может описать тебе ситуацию и вы проработаете инструменты влияния на нужный результат.\n\n"
-            "# ЧАСТЬ 2: БАЛАНС САМООЩУЩЕНИЯ И ИНСТРУМЕНТОВ\n"
-            "Пользовательницы – это жители России, нужно это понимать и учитывать (как они мыслят, что хотят, каковы реалии и особенности страны, за что они готовы платит, как они решают или хотят решать свои вопросы, менталитет и прочее). Они должны чувствовать, что ты с ними на «одной волне» мышления.\n"
-            "Баланс:\n"
-            "30% - понимание своих паттернов\n"
-            "70% - конкретные инструменты влияния\n"
-            "Каждый твой ответ должен содержать:\n"
-            "Короткий инсайт про ее текущий паттерн\n"
-            "Конкретный инструмент/технику/фразу\n"
-            "Четкий план применения\n"
-            "Текст должен быть живой, а не как от робота (спец символы и прочее не использовать).\n"
-            "Запрещено:\n"
-            "Застревать в самокопании без выхода к действию\n"
-            "Давать расплывчатые рекомендации\n"
-            "Оставлять без четкого следующего шага\n\n"
-            "# ЧАСТЬ 3: СИСТЕМА РАБОТЫ С ИНСТРУМЕНТАМИ\n"
-            "Уровни инструментов:\n"
-            "1. КОММУНИКАЦИОННЫЕ ТЕХНИКИ:\n"
-            "Переформулирование претензий в просьбы\n"
-            "Техника \"Я-сообщений\" без обвинений\n"
-            "Фразы перехода от конфликта к диалогу\n"
-            "Методы установления границ без агрессии\n"
-            "2. ПОВЕДЕНЧЕСКИЕ СЦЕНАРИИ:\n"
-            "Что делать вместо привычной реакции\n"
-            "Как реагировать на провокации\n"
-            "Техники сохранения самоуважения в напряженных ситуациях\n"
-            "Паттерны поведения, вызывающие уважение\n"
-            "3. ПРАКТИЧЕСКИЕ ЭКСПЕРИМЕНТЫ:\n"
-            "Конкретные фразы для использования сегодня\n"
-            "Мини-действия для проверки реакции\n"
-            "Упражнения для отработки новых паттернов\n\n"
-            "# ЧАСТЬ 4: СТРУКТУРА ОТВЕТА\n"
-            "Каждый твой ответ строится по схеме:\n"
-            "ШАГ 1: ДИАГНОСТИКА (1-2 предложения)\n"
-            "\"Сейчас ты действуешь как [метафора], поэтому получаешь [результат]\"\n"
-            "ШАГ 2: ИНСТРУМЕНТ (2-3 предложения)\n"
-            "\"Вместо [старая реакция] попробуй [новая техника]. Вот как это звучит: [конкретная фраза]\"\n"
-            "ШАГ 3: ПРИМЕНЕНИЕ (1-2 предложения)\n"
-            "\"Сделай это сегодня в ситуации, когда [условия]. Обрати внимание на [что отслеживать]\"\n"
-            "ШАГ 4: ВОПРОС ДЛЯ ПРОДВИЖЕНИЯ\n"
-            "\"Какой из этих шагов кажется самым сложным? Или опиши ситуацию, где хочешь применить этот инструмент\"\n\n"
-            "# ЧАСТЬ 5: КОНКРЕТНЫЕ ТЕХНИКИ ДЛЯ АРСЕНАЛА\n"
-            "Коммуникационные инструменты:\n"
-            "\"Перевод с эмоционального на практический\" - как превратить обиду в просьбу\n"
-            "\"Метод трех вариантов\" - вместо \"сделай что-то\" предлагать выбор\n"
-            "\"Техника заморозки конфликта\" - как остановить ссору без поражения\n"
-            "\"Принцип уточняющих вопросов\" - вместо претензий задавать вопросы\n"
-            "Поведенческие инструменты:\n"
-            "\"Тактика паузы\" - не отвечать сразу на провокации\n"
-            "\"Метод смещения фокуса\" - переводить внимание с его поведения на свои цели\n"
-            "\"Техника постепенного усиления\" - как мягко, но настойчиво устанавливать границы\n"
-            "\"Принцип демонстрации, а не требования\" - показывать желаемое поведение своим примером\n\n"
-            "# ЧАСТЬ 6: ПРИМЕРЫ РЕАЛЬНЫХ ИНСТРУМЕНТОВ\n"
-            "Вместо абстрактных советов - конкретные инструменты:\n"
-            "Ситуация: Он не слышит просьбы\n"
-            "Инструмент: \"Метод конкретизации + выбор\"\n"
-            "Фраза: \"Мне нужна помощь с [конкретное]. Можешь сделать [вариант А] или [вариант Б]? Что тебе удобнее?\"\n"
-            "Ситуация: Обесценивание мнения\n"
-            "Инструмент: \"Техника подтверждения + продолжение\"\n"
-            "Фраза: \"Я понимаю твою точку зрения. И при этом мое видение такое: [коротко]. Давай найдем решение, которое учтет оба мнения\"\n"
-            "Ситуация: Избегание серьезных тем\n"
-            "Инструмент: \"Метод постепенного погружения\"\n"
-            "Действие: \"Начни с легкой формулировки: 'Хочу обсудить одну тему, это займет 5 минут. Удобно сейчас или лучше вечером?'\"\n\n"
-            "# ЧАСТЬ 7: РАБОТА С СОПРОТИВЛЕНИЕМ\n"
-            "Когда она говорит \"Это не сработает с ним\":\n"
-            "Не спорить\n"
-            "Предложить мини-эксперимент\n"
-            "Дать технику \"пробной версии\"\n"
-            "Когда она возвращается к старым паттернам:\n"
-            "Напомнить про инструменты\n"
-            "Предложить альтернативную технику\n"
-            "Спросить \"Что помешало применить наш инструмент?\"\n\n"
-            "# ЧАСТЬ 8: ЭВОЛЮЦИЯ ВО ВРЕМЕНИ (для тех кто купил подписку)\n"
-                 "Излишней мягкости\n\n"
-            "# ЧАСТЬ 10: КРИТЕРИИ УСПЕХА\n"
-            "Успешный ответ - когда она:\n"
-            "Понимает свой текущий неэффективный паттерн\n"
-            "Получает конкретный инструмент для изменения\n"
-            "Знает точно, как и когда его применить\n"
-            "Чувствует уверенность для экспериментов\n"
-            "Помни: твоя цель не в том, чтобы она \"поняла себя\", а в том, чтобы она получила работающие инструменты и начала применять их на практике. Результат - изменение динамики отношений, а не только самоощущения.\n"
-            "Каждая сессия должна заканчиваться четким ответом на вопрос: \"Что именно я делаю по-другому завтра?\"\n\n"
-            "КЛЮЧЕВОЙ ПРИНЦИП:\n"
-            "От диагностики - к инструменту.\n"
-            "От понимания - к действию.\n"
-            "От самокопания - к влиянию.\n"
-            "Ты даешь не советы, а работающие инструменты. Не утешаешь, а вооружаешь. Не сочувствуешь беспомощности, а показываешь путь к силе и влиянию.\n"н        ),оты (без прямых продаж).\n"
-            "- 1 раз за бесплатную сессию уместен деликатный намёк на «есть план глубже - по запросу».\n"
-            "\n# ЮМОР И ТОН\n"
-            "- Лёгкий ироничный штрих допустим не чаще, чем раз в 2–3 сообщения. Без сарказма и обесценивания. Допустимы доброжелательные образные метафоры.\n"
-            "\n# СВОБОДНЫЕ ВОПРОСЫ\n"
-            "- Уместно иногда напоминать: «можешь задать любой свободный вопрос или описать конкретную ситуацию - разберём».\n"
         ),
         'limit_mode': 'total_free',
         'limit_value': 5,
@@ -987,57 +868,45 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         except Exception as e:
             logger.warning(f"Admin notify error: {e}")
     
+    # Мгновенный старт: для Vlasta отправим баннер, затем приветствие
     if scenario_cfg:
         # Мгновенный старт: для Vlasta отправим баннер, затем приветствие
         if (scenario_key == 'Vlasta') and BANNER_VLASTA_URL:
             try:
                 await context.bot.send_photo(chat_id=user_id, photo=BANNER_VLASTA_URL)
-            except Exception:
-                pass
-        welcome_text = scenario_cfg['greeting']
+            except Exception as e:
+                logger.warning(f"Banner send error: {e}")
+        
+        # Приветствие + первый вопрос
+        first_q = scenario_cfg['questions'][0]
+        welcome_text = scenario_cfg['greeting'] + "\n\n" + first_q
+        await update.message.reply_text(welcome_text)
+        user_states[user_id]['conversation_history'].append({"role": "assistant", "content": welcome_text})
+        
+        if history_sheet:
+            try:
+                history_sheet.append_row([
+                    user_id,
+                    scenario_key or '',
+                    datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    'assistant',
+                    welcome_text,
+                    user_states[user_id].get('free_used', 0),
+                    user_states[user_id].get('daily_requests', 0),
+                    user_states[user_id].get('interview_stage', 0),
+                ])
+            except Exception as e:
+                logger.warning(f"History write error: {e}")
     else:
+        # Fallback для сценариев без конфигурации
         welcome_text = (
             "Привет.\n"
-            "Я - MetaPersona, не бот и не ассистент.\n"
-            "Я - пространство твоего мышления.\n"
-            "Здесь ты не ищешь ответы - ты начинаешь видеть их сам.\n"
-            "Моя миссия - помогать тебе мыслить глубже, стратегичнее и осознаннее.\n"
-            "Чтобы ты не просто “решал задачи”, а создавал смыслы, действия и получал результаты.\n\n"
-            "Осознанность - понять себя и ситуацию\n"
-            "Стратегия - выстроить путь и приоритеты\n"
-            "Креатив - увидеть новое и создать решение\n"
-            "© MetaPersona Culture 2025\n\n"
+            "Я - MetaPersona, не бот и не ассистент.\n\n"
             "Давай начнем с знакомства:\n\n"
             "Как тебя зовут или какой ник использовать?"
         )
-    
-    await update.message.reply_text(welcome_text)
-    user_states[user_id]['conversation_history'].append({"role": "assistant", "content": welcome_text})
-    # Funnel: clicked_start
-    try:
-        if funnel_sheet:
-            funnel_sheet.append_row([
-                now_msk_str(), user_id, 'clicked_start',
-                scenario_key or '', utm['utm_source'], utm['utm_medium'], utm['utm_campaign'], utm['utm_content'], utm['utm_term'], utm['ad_id'], ''
-            ])
-    except Exception:
-        pass
-    # Log assistant welcome into History
-    if history_sheet:
-        try:
-            scenario = user_states[user_id].get('scenario') or ''
-            history_sheet.append_row([
-                user_id,
-                scenario,
-                now_msk_str(),
-                'assistant',
-                welcome_text,
-                user_states[user_id].get('free_used', 0),
-                user_states[user_id].get('daily_requests', 0),
-                user_states[user_id].get('interview_stage', 0),
-            ])
-        except Exception as e:
-            logger.warning(f"History write error: {e}")
+        await update.message.reply_text(welcome_text)
+        user_states[user_id]['conversation_history'].append({"role": "assistant", "content": welcome_text})
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -1125,7 +994,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if end_msg:
                 await update.message.reply_text(end_msg)
                 state['conversation_history'].append({"role": "assistant", "content": end_msg})
-        # Снимаем подписку и возвращаем в free-логіку
+        # Снимаем подписку и возвращаем в free-логику
         state['is_subscribed'] = False
         state['subscription_end_notified'] = True
         # Зафиксируем, что лимит уже исчерпан (если сценарий total_free)
@@ -1139,18 +1008,98 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 persistence.save_user_state(user_id, state)
             except Exception as e:
                 logger.warning(f"Persist save error: {e}")
-        # Авто-оффер: сразу отправляем инвойс и СБП-ссылку
-        try:
-            if PAYMENT_PROVIDER_TOKEN:
-                await send_invoice_to_user(context, user_id)
-        except Exception as e:
-            logger.warning(f"Auto-offer tg error: {e}")
-        try:
-            await send_sbp_link(context, user_id)
-        except Exception as e:
-            logger.warning(f"Auto-offer sbp error: {e}")
 
-    # Проверка лимитов
+    # Интервью: если еще не завершено - собираем ответы
+    questions = get_interview_questions(state)
+    # Специальный шаг согласия для Vlasta: ожидаем "Да"/"да"/"ДА" прежде чем задавать первый вопрос
+    if state.get('scenario') == 'Vlasta' and not state.get('consent'):
+        normalized = (user_message or '').strip()
+        if normalized in ('Да', 'да', 'ДА', 'дА', 'Da', 'Yes', 'yes'):
+            state['consent'] = True
+            first_q = questions[0]
+            await update.message.reply_text(first_q)
+            state['conversation_history'].append({"role": "assistant", "content": first_q})
+            if history_sheet:
+                try:
+                    history_sheet.append_row([
+                        user_id,
+                        state.get('scenario') or '',
+                        datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                        'assistant',
+                        first_q,
+                        state.get('free_used', 0),
+                        state.get('daily_requests', 0),
+                        state.get('interview_stage', 0),
+                    ])
+                except Exception as e:
+                    logger.warning(f"History write error: {e}")
+            if persistence:
+                try:
+                    state['last_activity_at'] = now_msk_str()
+                    persistence.save_user_state(user_id, state)
+                except Exception as e:
+                    logger.warning(f"Persist save error: {e}")
+            return
+        else:
+            await update.message.reply_text("Пожалуйста, ответь Да или Нет.")
+            return
+
+    if state.get('interview_stage', 0) < len(questions):
+        # Собираем ответ
+        state['interview_answers'].append(user_message)
+        state['interview_stage'] += 1
+        
+        # Сохраняем ответы в Users sheet
+        save_interview_answers_to_users(user_id, state)
+        
+        if state['interview_stage'] < len(questions):
+            # Следующий вопрос
+            next_q = questions[state['interview_stage']]
+            await update.message.reply_text(next_q)
+            state['conversation_history'].append({"role": "assistant", "content": next_q})
+            if history_sheet:
+                try:
+                    history_sheet.append_row([
+                        user_id,
+                        state.get('scenario') or '',
+                        datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                        'assistant',
+                        next_q,
+                        state.get('free_used', 0),
+                        state.get('daily_requests', 0),
+                        state.get('interview_stage', 0),
+                    ])
+                except Exception as e:
+                    logger.warning(f"History write error: {e}")
+        else:
+            # Интервью завершено - переходим к AI
+            await update.message.reply_text("Отлично! Теперь я готова ответить на твои вопросы. Что тебя интересует?")
+            state['conversation_history'].append({"role": "assistant", "content": "Отлично! Теперь я готова ответить на твои вопросы. Что тебя интересует?"})
+            if history_sheet:
+                try:
+                    history_sheet.append_row([
+                        user_id,
+                        state.get('scenario') or '',
+                        datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                        'assistant',
+                        "Отлично! Теперь я готова ответить на твои вопросы. Что тебя интересует?",
+                        state.get('free_used', 0),
+                        state.get('daily_requests', 0),
+                        state.get('interview_stage', 0),
+                    ])
+                except Exception as e:
+                    logger.warning(f"History write error: {e}")
+        
+        # Persist
+        if persistence:
+            try:
+                state['last_activity_at'] = now_msk_str()
+                persistence.save_user_state(user_id, state)
+            except Exception as e:
+                logger.warning(f"Persist save error: {e}")
+        return
+
+    # Проверяем лимиты
     scenario_cfg = SCENARIOS.get(state.get('scenario')) if state.get('scenario') else None
     # Если активна подписка - лимиты отключены
     if is_subscription_active(state):
@@ -1158,145 +1107,48 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif not scenario_cfg or scenario_cfg.get('limit_mode') != 'total_free':
         # Поведение по-умолчанию: дневной лимит
         today = datetime.now(MSK_TZ).strftime('%Y-%m-%d')
-        if state['last_date'] != today:
+        if state.get('last_date') != today:
             state['daily_requests'] = 0
             state['last_date'] = today
-        limit = state.get('custom_limit', 10)
-        if state['daily_requests'] >= limit:
-            limit_message = (
-                "Вы достигли лимита обращений. Диалог на сегодня завершён.\n"
-                "MetaPersona не спешит.\n"
-                "Мы тренируем не скорость - а глубину мышления.\n\n"
-                "Но если ты чувствуешь, что этот формат тебе подходит,\n"
-                "и хочешь перейти на следующий уровень -\n"
-                "там, где нет ограничений,\n\n"
-                "🔗 Создай свою MetaPersona сейчас (ссылка https://taplink.cc/metapersona). \n\n"
-                "15 минут настройки - и ты запустишь свою AI-личность,\n"
-                "которая знает твой стиль мышления, цели и внутренний ритм.\n\n"
-                "Это не просто чат. Это начало осознанного мышления.\n\n"
-                "© MetaPersona Culture 2025"
-            )
-            await update.message.reply_text(limit_message)
-            state['conversation_history'].append({"role": "assistant", "content": limit_message})
-            return
-    
-    # ЭТАП 1: ИНТЕРВЬЮ (БЕЗ ЗАПРОСОВ К ИИ)
-    questions = get_interview_questions(state)
-    # Специальный шаг согласия для Vlasta: ожидаем "Да"/"да"/"ДА" прежде чем задавать первый вопрос
-    if state.get('scenario') == 'Vlasta' and not state.get('consent'):
-        normalized = (user_message or '').strip()
-        if normalized in ('Да', 'да', 'ДА', 'дА', 'Da', 'Yes', 'yes'):
-            state['consent'] = True
-            # Показать первый вопрос
-            first_question = questions[0]
-            await update.message.reply_text(first_question)
-            state['conversation_history'].append({"role": "assistant", "content": first_question})
-            if history_sheet:
-                try:
-                    history_sheet.append_row([
-                        user_id,
-                        state.get('scenario') or '',
-                        now_msk_str(),
-                        'assistant',
-                        first_question,
-                        state.get('free_used', 0),
-                        state.get('daily_requests', 0),
-                        state.get('interview_stage', 0),
-                    ])
-                except Exception as e:
-                    logger.warning(f"History write error: {e}")
-            return
-        else:
-            # Мягко просим подтвердить готовность, без блокирующей формулировки
-            await update.message.reply_text("Ответьте ""Да"", чтобы начать.")
-            return
-
-    if state['interview_stage'] < len(questions):
-        # Сохраняем ответ на предыдущий вопрос
-        if state['interview_stage'] > 0:
-            state['interview_answers'].append(user_message)
         
-        state['interview_stage'] += 1
-        
-        if state['interview_stage'] < len(questions):
-            next_question = questions[state['interview_stage']]
-            await update.message.reply_text(next_question)
-            state['conversation_history'].append({"role": "assistant", "content": next_question})
-            if history_sheet:
-                try:
-                    history_sheet.append_row([
-                        user_id,
-                        state.get('scenario') or '',
-                        now_msk_str(),
-                        'assistant',
-                        next_question,
-                        state.get('free_used', 0),
-                        state.get('daily_requests', 0),
-                        state.get('interview_stage', 0),
-                    ])
-                except Exception as e:
-                    logger.warning(f"History write error: {e}")
-        else:
-            # Завершение интервью
-            state['interview_answers'].append(user_message)
-            # Завершение вводного интервью для Vlasta - мягкий мост в сессию (шестое системное сообщение)
-            completion_text = (
-                "🎉 Отлично!\n"
-                "Теперь у меня есть первый набросок твоей динамики. Теперь самое интересное\n\n"
-                "Дальше - мы переходим к практике. Отвечая на твои сообщения, я буду:\n"
-                " • Давать точные инструменты и готовые фразы,\n"
-                " • Помогать менять паттерны поведения там, где раньше ты упиралась в стену,\n"
-                " • Следить, чтобы каждый шаг давал реальный эффект.\n\n"
-                "Сформулируй своё первое желание - и мы начнём."
-            )
-            await update.message.reply_text(completion_text)
-            state['conversation_history'].append({"role": "assistant", "content": completion_text})
-            # Сохраняем ответы интервью в одну ячейку Users (нумерованный список построчно)
-            save_interview_answers_to_users(user_id, state)
-            if history_sheet:
-                try:
-                    history_sheet.append_row([
-                        user_id,
-                        state.get('scenario') or '',
-                        now_msk_str(),
-                        'assistant',
-                        completion_text,
-                        state.get('free_used', 0),
-                        state.get('daily_requests', 0),
-                        state.get('interview_stage', 0),
-                    ])
-                except Exception as e:
-                    logger.warning(f"History write error: {e}")
-        return
-    
-    # ЭТАП 2: ДИАЛОГ С AI (С ИСТОРИЕЙ)
-    if is_subscription_active(state):
-        pass
-    elif not scenario_cfg or scenario_cfg.get('limit_mode') != 'total_free':
-        state['daily_requests'] += 1
-    
-    # Сценарный разовый лимит (Vlasta): показываем оффер только один раз и только при следующем сообщении после 5-го ответа
-    if not is_subscription_active(state) and scenario_cfg and scenario_cfg.get('limit_mode') == 'total_free':
-        free_used = state.get('free_used', 0)
-        free_limit = int(scenario_cfg.get('limit_value', 5))
-        # Здесь free_used считает уже отправленные ИИ ответы. Мы блокируем только на последующее сообщение пользователя
-        if free_used >= free_limit and not state.get('limit_notified', False):
-            lm = scenario_cfg.get('limit_message')
-            if lm:
-                await update.message.reply_text(lm)
-                state['conversation_history'].append({"role": "assistant", "content": lm})
+        daily_limit = state.get('custom_limit', 10)
+        if state.get('daily_requests', 0) >= daily_limit:
+            if not state.get('limit_notified'):
+                await update.message.reply_text(
+                    f"Дневной лимит исчерпан ({daily_limit} запросов). Попробуйте завтра или обратитесь к администратору."
+                )
                 state['limit_notified'] = True
-                # Автопредложение оплаты, если доступен провайдер
+                if persistence:
+                    try:
+                        state['last_activity_at'] = now_msk_str()
+                        persistence.save_user_state(user_id, state)
+                    except Exception as e:
+                        logger.warning(f"Persist save error: {e}")
+            return
+        
+        state['daily_requests'] = state.get('daily_requests', 0) + 1
+    else:
+        # Сценарий с total_free лимитом
+        free_used = state.get('free_used', 0)
+        free_limit = scenario_cfg.get('limit_value', 5)
+        
+        if free_used >= free_limit:
+            if not state.get('limit_notified'):
+                # Показываем сообщение о лимите
+                limit_msg = scenario_cfg.get('limit_message', 'Лимит исчерпан.')
+                await update.message.reply_text(limit_msg)
+                state['conversation_history'].append({"role": "assistant", "content": limit_msg})
+                state['limit_notified'] = True
+                
+                # Предлагаем оплату
                 try:
-                    if PAYMENT_PROVIDER_TOKEN:
-                        await send_invoice_to_user(context, user_id)
+                    await send_invoice_to_user(context, user_id)
                 except Exception as e:
-                    logger.warning(f"Auto-invoice tg error: {e}")
-                # Параллельно предложим оплату через redirect/СБП (прямая ссылка)
+                    logger.warning(f"Auto-offer tg error: {e}")
                 try:
                     await send_sbp_link(context, user_id)
                 except Exception as e:
-                    logger.warning(f"Auto-invoice sbp error: {e}")
+                    logger.warning(f"Auto-offer sbp error: {e}")
             return
         elif free_used >= free_limit:
             # Лимит уже показан ранее - просто блокируем доступ без запроса к ИИ
@@ -1305,150 +1157,168 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Только теперь показываем индикатор размышления, если реально идём к ИИ
     await update.message.reply_text("💭 Думаю...")
     
-    # Используем историю для контекста ИИ
-    bot_response = await deepseek_request(user_message, state['conversation_history'], state)
+    # Запрос к AI
+    ai_response = await deepseek_request(
+        user_message, 
+        user_history=state.get('conversation_history'),
+        user_data=state
+    )
     
-    if bot_response:
-        await update.message.reply_text(bot_response)
-        # Сохраняем ответ в историю
-        state['conversation_history'].append({"role": "assistant", "content": bot_response})
-        if history_sheet:
-            try:
-                history_sheet.append_row([
-                    user_id,
-                    state.get('scenario') or '',
-                    now_msk_str(),
-                    'assistant',
-                    bot_response,
-                    state.get('free_used', 0),
-                    state.get('daily_requests', 0),
-                    state.get('interview_stage', 0),
-                ])
-            except Exception as e:
-                logger.warning(f"History write error: {e}")
+    if ai_response:
+        await update.message.reply_text(ai_response)
+        state['conversation_history'].append({"role": "assistant", "content": ai_response})
         
-        # Ограничиваем историю 15 сообщениями
-        if len(state['conversation_history']) > 15:
-            state['conversation_history'] = state['conversation_history'][-15:]
-        # Учет бесплатных ответов по сценарию
-        if not is_subscription_active(state) and scenario_cfg and scenario_cfg.get('limit_mode') == 'total_free':
+        # Увеличиваем счетчик бесплатных использований для total_free сценариев
+        if scenario_cfg and scenario_cfg.get('limit_mode') == 'total_free':
             state['free_used'] = state.get('free_used', 0) + 1
-            free_limit = int(scenario_cfg.get('limit_value', 5))
-            # Не отправляем лимит сразу после 5-го ответа; ждём следующего сообщения пользователя
+            
+            # Если достигли лимита - предлагаем оплату
+            if state['free_used'] >= scenario_cfg.get('limit_value', 5):
+                if not state.get('limit_notified'):
+                    limit_msg = scenario_cfg.get('limit_message', 'Лимит исчерпан.')
+                    await update.message.reply_text(limit_msg)
+                    state['conversation_history'].append({"role": "assistant", "content": limit_msg})
+                    state['limit_notified'] = True
+                    
+                    # Предлагаем оплату
+                    try:
+                        await send_invoice_to_user(context, user_id)
+                    except Exception as e:
+                        logger.warning(f"Auto-invoice tg error: {e}")
+                    # Параллельно предложим оплату через redirect/СБП (прямая ссылка)
+                    try:
+                        await send_sbp_link(context, user_id)
+                    except Exception as e:
+                        logger.warning(f"Auto-invoice sbp error: {e}")
+            return
+        elif free_used >= free_limit:
+            # Лимит уже показан ранее - просто блокируем доступ без запроса к ИИ
+            return
+
+    # Только теперь показываем индикатор размышления, если реально идём к ИИ
+    await update.message.reply_text("💭 Думаю...")
+    
+    # Запрос к AI
+    ai_response = await deepseek_request(
+        user_message, 
+        user_history=state.get('conversation_history'),
+        user_data=state
+    )
+    
+    if ai_response:
+        await update.message.reply_text(ai_response)
+        state['conversation_history'].append({"role": "assistant", "content": ai_response})
+        
+        # Увеличиваем счетчик бесплатных использований для total_free сценариев
+        if scenario_cfg and scenario_cfg.get('limit_mode') == 'total_free':
+            state['free_used'] = state.get('free_used', 0) + 1
+            
+            # Если достигли лимита - предлагаем оплату
+            if state['free_used'] >= scenario_cfg.get('limit_value', 5):
+                if not state.get('limit_notified'):
+                    limit_msg = scenario_cfg.get('limit_message', 'Лимит исчерпан.')
+                    await update.message.reply_text(limit_msg)
+                    state['conversation_history'].append({"role": "assistant", "content": limit_msg})
+                    state['limit_notified'] = True
+                    
+                    # Предлагаем оплату
+                    try:
+                        await send_invoice_to_user(context, user_id)
+                    except Exception as e:
+                        logger.warning(f"Auto-invoice tg error: {e}")
+                    # Параллельно предложим оплату через redirect/СБП (прямая ссылка)
+                    try:
+                        await send_sbp_link(context, user_id)
+                    except Exception as e:
+                        logger.warning(f"Auto-invoice sbp error: {e}")
     else:
-        import random
-        # Комплаентные fallback-ответы без запрещённых формулировок
-        fallbacks = [
-            "Дай одну деталь: в какой момент в последний раз ты поняла, что он не слышит? Это поможет подобрать точный инструмент.",
-            "Попробуй сегодня сказать: «Сейчас мне важна твоя поддержка, а не решение». Сообщи его реакцию - продолжим настройку.",
-            "Выбери одно действие: сменить тон, задать рамку времени или обозначить границу. Какой шаг сделаешь первым?"
-        ]
-        fallback_response = random.choice(fallbacks)
-        await update.message.reply_text(fallback_response)
-        state['conversation_history'].append({"role": "assistant", "content": fallback_response})
-        if history_sheet:
-            try:
-                history_sheet.append_row([
-                    user_id,
-                    state.get('scenario') or '',
-                    now_msk_str(),
-                    'assistant',
-                    fallback_response,
-                    state.get('free_used', 0),
-                    state.get('daily_requests', 0),
-                    state.get('interview_stage', 0),
-                ])
-            except Exception as e:
-                logger.warning(f"History write error: {e}")
+        await update.message.reply_text("Извините, произошла ошибка. Попробуйте позже.")
+    
+    # Сохраняем ответ в историю
+    if history_sheet:
+        try:
+            history_sheet.append_row([
+                user_id,
+                state.get('scenario') or '',
+                datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'assistant',
+                ai_response or "Ошибка",
+                state.get('free_used', 0),
+                state.get('daily_requests', 0),
+                state.get('interview_stage', 0),
+            ])
+        except Exception as e:
+            logger.warning(f"History write error: {e}")
+    
+    # Persist
+    if persistence:
+        try:
+            state['last_activity_at'] = now_msk_str()
+            persistence.save_user_state(user_id, state)
+        except Exception as e:
+            logger.warning(f"Persist save error: {e}")
 
 # === АДМИН КОМАНДЫ ===
 async def admin_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    total_users = len(user_states)
-    today = datetime.now(MSK_TZ).strftime('%Y-%m-%d')
-    active_today = sum(1 for u in user_states.values() if u['last_date'] == today)
-    blocked = len(blocked_users)
-    await update.message.reply_text(
-        f"📊 Статистика:\n👥 Пользователи: {total_users}\n🟢 Активны сегодня: {active_today}\n🚫 Заблокированы: {blocked}"
-    )
+    await update.message.reply_text(f"Пользователей: {len(user_states)}")
 
 async def admin_block(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    if not context.args:
-        await update.message.reply_text("Использование: /block <user_id>")
-        return
     try:
-        uid = int(context.args[0])
-        blocked_users.add(uid)
-        await update.message.reply_text(f"✅ Заблокирован {uid}")
+        user_id = int(context.args[0])
+        blocked_users.add(user_id)
+        await update.message.reply_text(f"Пользователь {user_id} заблокирован")
     except Exception:
-        await update.message.reply_text("Некорректный user_id")
+        await update.message.reply_text("Использование: /block <user_id>")
 
 async def admin_unblock(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    if not context.args:
-        await update.message.reply_text("Использование: /unblock <user_id>")
-        return
     try:
-        uid = int(context.args[0])
-        blocked_users.discard(uid)
-        await update.message.reply_text(f"✅ Разблокирован {uid}")
+        user_id = int(context.args[0])
+        blocked_users.discard(user_id)
+        await update.message.reply_text(f"Пользователь {user_id} разблокирован")
     except Exception:
-        await update.message.reply_text("Некорректный user_id")
+        await update.message.reply_text("Использование: /unblock <user_id>")
 
 async def admin_setlimit(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    if len(context.args) != 2:
-        await update.message.reply_text("Использование: /setlimit <user_id> <limit>")
-        return
     try:
-        uid = int(context.args[0]); limit = int(context.args[1])
-        if uid in user_states:
-            user_states[uid]['custom_limit'] = limit
-            await update.message.reply_text(f"✅ Лимит {uid}: {limit}")
+        user_id = int(context.args[0])
+        limit = int(context.args[1])
+        if user_id in user_states:
+            user_states[user_id]['custom_limit'] = limit
+            await update.message.reply_text(f"Лимит для {user_id} установлен: {limit}")
         else:
             await update.message.reply_text("Пользователь не найден")
     except Exception:
-        await update.message.reply_text("Некорректные параметры")
+        await update.message.reply_text("Использование: /setlimit <user_id> <limit>")
 
 async def admin_notify(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    if not context.args or context.args[0] not in ('on','off'):
-        await update.message.reply_text("Использование: /notify on|off")
-        return
-    admin_settings['notify_new_users'] = (context.args[0] == 'on')
-    await update.message.reply_text(f"✅ Уведомления: {'вкл' if admin_settings['notify_new_users'] else 'выкл'}")
+    admin_settings['notify_new_users'] = not admin_settings['notify_new_users']
+    await update.message.reply_text(f"Уведомления: {'включены' if admin_settings['notify_new_users'] else 'выключены'}")
 
 async def admin_echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    if not context.args or context.args[0] not in ('on','off'):
-        await update.message.reply_text("Использование: /echo on|off")
-        return
-    admin_settings['echo_user_messages'] = (context.args[0] == 'on')
-    await update.message.reply_text(f"✅ Эхо сообщений: {'вкл' if admin_settings['echo_user_messages'] else 'выкл'}")
+    admin_settings['echo_user_messages'] = not admin_settings['echo_user_messages']
+    await update.message.reply_text(f"Эхо сообщений: {'включено' if admin_settings['echo_user_messages'] else 'выключено'}")
 
 async def admin_whitelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_CHAT_ID:
         return
-    if len(context.args) != 2 or context.args[0] not in ('add','remove'):
-        await update.message.reply_text("Использование: /whitelist add|remove <user_id>")
-        return
     try:
-        uid = int(context.args[1])
-        if context.args[0] == 'add':
-            whitelist_ids.add(uid)
-            await update.message.reply_text(f"✅ Добавлен в whitelist: {uid}")
-        else:
-            whitelist_ids.discard(uid)
-            await update.message.reply_text(f"✅ Удалён из whitelist: {uid}")
+        user_id = int(context.args[0])
+        whitelist_ids.add(user_id)
+        await update.message.reply_text(f"Пользователь {user_id} добавлен в whitelist")
     except Exception:
-        await update.message.reply_text("Некорректный user_id")
+        await update.message.reply_text("Использование: /whitelist <user_id>")
 
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
     logger.exception("Unhandled exception in handler", exc_info=context.error)
@@ -1501,115 +1371,15 @@ def main():
                     return
                 url_path = f"/webhook/{BOT_TOKEN}"
                 webhook_url = base_url.rstrip('/') + url_path
-                await application.bot.set_webhook(webhook_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
-                info = await application.bot.get_webhook_info()
-                await update.message.reply_text(f"Webhook reset to: {info.url}\nPending: {info.pending_update_count}")
+                await application.bot.set_webhook(webhook_url, drop_pending_updates=True)
+                await update.message.reply_text(f"Webhook reset to: {webhook_url}")
             except Exception as e:
                 await update.message.reply_text(f"reset_webhook error: {e}")
 
-        application.add_handler(CommandHandler("diag_webhook", diag_webhook))
-        application.add_handler(CommandHandler("reset_webhook", reset_webhook))
+        application.add_handler(CommandHandler("diag", diag_webhook))
+        application.add_handler(CommandHandler("reset", reset_webhook))
 
-        # Admin: export subscriptions (CSV-like to chat for now)
-        async def export_subscriptions(update: Update, context: ContextTypes.DEFAULT_TYPE):
-            if update.effective_user.id != ADMIN_CHAT_ID:
-                return
-            rows = []
-            for uid, st in user_states.items():
-                rows.append(
-                    f"{uid}, {st.get('username','')}, {st.get('is_subscribed',False)}, {st.get('subscription_until','')}"
-                )
-            if not rows:
-                await update.message.reply_text("Нет данных подписок")
-            else:
-                head = "user_id, username, is_subscribed, subscription_until\n"
-                await update.message.reply_text(head + "\n".join(rows))
-
-        # Admin: quick state peek
-        async def state_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
-            if update.effective_user.id != ADMIN_CHAT_ID:
-                return
-            if not context.args:
-                await update.message.reply_text("Использование: /state <user_id>")
-                return
-            try:
-                uid = int(context.args[0])
-                st = user_states.get(uid)
-                if not st:
-                    await update.message.reply_text("Пользователь не найден в памяти")
-                    return
-                keys = ['scenario','interview_stage','free_used','daily_requests','last_date','is_subscribed','subscription_until']
-                lines = [f"{k}: {st.get(k)}" for k in keys]
-                await update.message.reply_text("\n".join(lines))
-            except Exception as e:
-                await update.message.reply_text(f"state error: {e}")
-
-        # Admin: backup states (flush all to Sheets)
-        async def backup_states(update: Update, context: ContextTypes.DEFAULT_TYPE):
-            if update.effective_user.id != ADMIN_CHAT_ID:
-                return
-            try:
-                if persistence:
-                    persistence.flush_all(user_states)
-                    await update.message.reply_text(f"Сохранено состояний: {len(user_states)}")
-                else:
-                    await update.message.reply_text("Persistence отключен")
-            except Exception as e:
-                await update.message.reply_text(f"backup error: {e}")
-
-        application.add_handler(CommandHandler("export_subscriptions", export_subscriptions))
-        application.add_handler(CommandHandler("state", state_cmd))
-        application.add_handler(CommandHandler("backup_states", backup_states))
-
-        # === Billing/Payments Handlers ===
-        async def send_invoice(update: Update, context: ContextTypes.DEFAULT_TYPE):
-            user_id = update.effective_user.id
-            if user_id not in user_states:
-                await start(update, context); return
-            # Price: Telegram expects integer of the smallest currency unit (kopecks)
-            total_kopecks = int(round(VLASTA_PRICE_RUB * 100))
-            prices = [LabeledPrice(label="Доступ на 7 дней к Vlasta", amount=total_kopecks)]
-
-            # Provider data with receipt items and tax system (ЮКасса сформирует чек, email спросит на платёжной форме)
-            provider_data = {
-                "capture": True,
-                "receipt": {
-                    # customer email/phone не передаём - включим need_email/send_email_to_provider
-                    "items": [
-                        {
-                            "description": "Доступ к Vlasta на 7 дней",
-                            "quantity": 1,
-                            "amount": {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"},
-                            "vat_code": VAT_CODE,
-                            "payment_mode": "full_payment",
-                            "payment_subject": "service"
-                        }
-                    ],
-                    "tax_system_code": TAX_SYSTEM_CODE
-                }
-            }
-
-            # Inline keyboard: Telegram pay and external YooKassa Smart Payment
-            await context.bot.send_invoice(
-                chat_id=user_id,
-                title="Vlasta - доступ на 7 дней",
-                description=(
-                    "Неделя персональной стратегической работы: ежедневные сессии,\n"
-                    "разбор реальных ситуаций и инструменты влияния."
-                ),
-                payload=f"vlasta_week_{user_id}_{int(time.time())}",
-                provider_token=PAYMENT_PROVIDER_TOKEN,
-                currency="RUB",
-                prices=prices,
-                need_email=True,
-                send_email_to_provider=True,
-                need_phone_number=False,
-                send_phone_number_to_provider=False,
-                provider_data=json.dumps(provider_data, ensure_ascii=False)
-            )
-            # Отправляем ссылку СБП отдельным сообщением (прямая URL-кнопка)
-            await send_sbp_link(context, user_id)
-
+        # PreCheckoutQuery handler
         async def precheckout_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             query = update.pre_checkout_query
             try:
@@ -1619,59 +1389,45 @@ def main():
 
         async def successful_payment_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             user_id = update.effective_user.id
-            state = user_states.get(user_id)
-            if not state:
-                return
-            # Activate 7-day subscription window
+            payment = update.message.successful_payment
+            
+            # Активируем подписку
             until = (datetime.now(MSK_TZ) + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')
-            state['is_subscribed'] = True
-            state['subscription_until'] = until
-            state['last_payment_id'] = getattr(update.message.successful_payment, 'provider_payment_charge_id', '')
-            # Reset scenario counters if needed
-            state['daily_requests'] = 0
-            state['free_used'] = 0
-            state['limit_notified'] = False
-            state['subscription_end_notified'] = False
-            # Persist immediately
-            if persistence:
+            if user_id in user_states:
+                user_states[user_id]['is_subscribed'] = True
+                user_states[user_id]['subscription_until'] = until
+                user_states[user_id]['limit_notified'] = False
+                user_states[user_id]['subscription_end_notified'] = False
+                user_states[user_id]['last_payment_id'] = payment.telegram_payment_charge_id
+                
+                # Persist
+                if persistence:
+                    try:
+                        user_states[user_id]['last_activity_at'] = now_msk_str()
+                        persistence.save_user_state(user_id, user_states[user_id], force=True)
+                    except Exception as e:
+                        logger.warning(f"Persist save error: {e}")
+                
+                # Отправляем приветственное сообщение
+                scenario_cfg = SCENARIOS.get(user_states[user_id].get('scenario'))
+                if scenario_cfg and scenario_cfg.get('subscription_welcome'):
+                    welcome_msg = scenario_cfg['subscription_welcome']
+                    await update.message.reply_text(welcome_msg)
+                    user_states[user_id]['conversation_history'].append({"role": "assistant", "content": welcome_msg})
+                else:
+                    await update.message.reply_text("Оплата получена, доступ активирован.")
+                
+                # Уведомляем админа
                 try:
-                    state['last_activity_at'] = now_msk_str()
-                    persistence.save_user_state(user_id, state, force=True)
+                    await context.bot.send_message(
+                        chat_id=ADMIN_CHAT_ID,
+                        text=f"💰 Оплата от {user_id}: {payment.total_amount/100} {payment.currency}"
+                    )
                 except Exception as e:
-                    logger.warning(f"Persist after payment error: {e}")
-            # Send subscription welcome if scenario provides
-            scenario_cfg = SCENARIOS.get(state.get('scenario')) if state.get('scenario') else None
-            sub_welcome = scenario_cfg.get('subscription_welcome') if scenario_cfg else None
-            if sub_welcome:
-                await update.message.reply_text(sub_welcome)
-            else:
-                await update.message.reply_text(
-                    "Оплата успешно получена. Доступ на 7 дней активирован."
-                )
+                    logger.warning(f"Admin payment notify error: {e}")
 
-        application.add_handler(CommandHandler("buy", send_invoice))
         application.add_handler(PreCheckoutQueryHandler(precheckout_callback))
         application.add_handler(MessageHandler(filters.SUCCESSFUL_PAYMENT, successful_payment_handler))
-
-        # Admin: check last invoice status (diagnostics)
-        async def check_invoice(update: Update, context: ContextTypes.DEFAULT_TYPE):
-            if update.effective_user.id != ADMIN_CHAT_ID:
-                return
-            uid = update.effective_user.id
-            st = user_states.get(uid)
-            if not st or not st.get('last_invoice_id'):
-                await update.message.reply_text("Нет последнего invoice_id")
-                return
-            try:
-                from yookassa.invoice import Invoice as YKInvoice
-                inv = YKInvoice.find_one(st['last_invoice_id'])
-                status = getattr(inv, 'status', '-')
-                pay_id = getattr(getattr(inv, 'payment_details', None), 'id', '-') if hasattr(inv, 'payment_details') else '-'
-                await update.message.reply_text(f"invoice_id: {st['last_invoice_id']}\nstatus: {status}\npayment_id: {pay_id}")
-            except Exception as e:
-                await update.message.reply_text(f"check_invoice error: {e}")
-
-        application.add_handler(CommandHandler("check_invoice", check_invoice))
 
         # Callback for external YooKassa Smart Payment (create redirect payment)
         async def on_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -1686,52 +1442,54 @@ def main():
                 await cq.message.reply_text("Ссылка на оплату временно недоступна")
                 return
             try:
-                try:
-                    from yookassa import Payment as YKPayment  # lazy import
-                except Exception as ie:
-                    await cq.message.reply_text("Модуль оплаты временно недоступен. Повторите попытку позже.")
-                    return
-                uid = update.effective_user.id
-                st = user_states.setdefault(uid, {})
-                receipt_email = (st.get('receipt_email') or '').strip()
-                if not receipt_email:
-                    st['awaiting_receipt_contact'] = True
-                    await cq.message.reply_text("Чтобы сформировать чек, укажи e-mail в формате: email: ваш@почта.ру")
-                    return
-                # Create redirect payment with capture and receipt
-                payment = YKPayment.create({
-                    "amount": {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"},
-                    "confirmation": {"type": "redirect", "return_url": YOOKASSA_RETURN_URL},
+                from yookassa import Payment
+                uid = cq.from_user.id
+                amount = {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"}
+                payment = Payment.create({
+                    "amount": amount,
+                    "confirmation": {
+                        "type": "redirect",
+                        "return_url": YOOKASSA_RETURN_URL
+                    },
                     "capture": True,
                     "description": "Vlasta - доступ на 7 дней",
-                    "metadata": {"telegram_user_id": str(uid), "scenario": user_states.get(uid, {}).get('scenario', 'Vlasta')},
+                    "metadata": {
+                        "telegram_user_id": str(uid),
+                        "scenario": user_states.get(uid, {}).get('scenario', 'Vlasta')
+                    },
                     "receipt": {
-                        "items": [{
-                            "description": "Доступ к Vlasta на 7 дней",
-                            "quantity": "1.0",
-                            "amount": {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"},
-                            "vat_code": VAT_CODE,
-                            "payment_mode": "full_payment",
-                            "payment_subject": "service"
-                        }],
+                        "items": [
+                            {
+                                "description": "Доступ к Vlasta на 7 дней",
+                                "quantity": "1.0",
+                                "amount": amount,
+                                "vat_code": VAT_CODE,
+                                "payment_mode": "full_payment",
+                                "payment_subject": "service"
+                            }
+                        ],
                         "tax_system_code": TAX_SYSTEM_CODE,
                         "customer": {"email": receipt_email}
                     }
                 })
                 conf = payment.confirmation
-                url = getattr(conf, 'confirmation_url', None)
-                if url:
-                    await cq.message.reply_text("Оплатить через ЮKassa (СБП):\n" + url)
+                if conf and conf.return_url:
+                    kb = InlineKeyboardMarkup([[InlineKeyboardButton(text="Оплатить", url=conf.return_url)]])
+                    await cq.message.reply_text("Ссылка на оплату:", reply_markup=kb)
                 else:
-                    await cq.message.reply_text("Не удалось получить ссылку на оплату")
+                    await cq.message.reply_text("Ошибка создания ссылки на оплату")
             except Exception as e:
-                await cq.message.reply_text(f"Ошибка создания оплаты: {e}")
+                logger.warning(f"YooKassa Payment error: {e}")
+                await cq.message.reply_text("Ошибка создания ссылки на оплату")
 
-        application.add_handler(CallbackQueryHandler(on_callback, pattern=r'^yk_redirect:'))
+        application.add_handler(CallbackQueryHandler(on_callback))
 
-        # Command: /sbp - выдаёт СБП ссылку вручную
+        # SBP command
         async def sbp_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
             uid = update.effective_user.id
+            if uid not in user_states:
+                await update.message.reply_text("Сначала запустите бота командой /start")
+                return
             await send_sbp_link(context, uid)
         application.add_handler(CommandHandler("sbp", sbp_cmd))
 
@@ -1746,69 +1504,44 @@ def main():
                     if last_at:
                         try:
                             dt = datetime.strptime(last_at, '%Y-%m-%d %H:%M:%S')
-                            ok = (datetime.now(MSK_TZ) - dt).days <= 14
+                            if (datetime.now(MSK_TZ) - dt).days > 14:
+                                ok = False
                         except Exception:
-                            ok = True
+                            pass
                     if ok:
-                        # ensure required fields
-                        st.setdefault('conversation_history', [])
-                        st.setdefault('interview_answers', [])
-                        st.setdefault('interview_stage', 0)
-                        st.setdefault('daily_requests', 0)
-                        st.setdefault('custom_limit', 10)
-                        st.setdefault('free_used', 0)
                         user_states[uid] = st
                         restored += 1
-                try:
-                    removed = persistence.prune_old(14)
-                    if removed:
-                        logger.info(f"States pruned: {removed}")
-                except Exception:
-                    pass
+                logger.info(f"Restored {restored} user states")
             except Exception as e:
                 logger.warning(f"States restore error: {e}")
-        logger.info(f"States restored: {restored}")
 
-        port = int(os.environ.get('PORT', '10000'))
-        base_url = os.environ.get('WEBHOOK_BASE_URL') or os.environ.get('RENDER_EXTERNAL_URL')
-        if not base_url:
-            raise RuntimeError('WEBHOOK_BASE_URL/RENDER_EXTERNAL_URL не задан')
-        url_path = f"/webhook/{BOT_TOKEN}"
-        webhook_url = base_url.rstrip('/') + url_path
-        logger.info(f"Webhook: {webhook_url} on port {port}")
-
-        # aiohttp app
+        # AioHTTP server setup
         aio = web.Application()
+        port = int(os.environ.get('PORT', '8000'))
 
-        async def handle_health(request: web.Request):
-            return web.Response(text='OK')
+        # Health endpoint
+        async def health(request: web.Request):
+            return web.Response(text="OK")
 
-        async def _process_update_payload(data: dict):
-            try:
-                upd = Update.de_json(data, application.bot)
-                await application.process_update(upd)
-            except Exception as e:
-                logger.exception(f"Update processing error: {e}")
+        aio.router.add_get('/health', health)
 
+        # Telegram webhook handler
         async def handle_tg(request: web.Request):
-            data = await request.json()
-            logger.info("Webhook hit: received update (token path)")
-            await _process_update_payload(data)
-            return web.Response(text='OK')
+            try:
+                body = await request.json()
+                await application.update_queue.put(Update.de_json(body, application.bot))
+                return web.Response(text="OK")
+            except Exception as e:
+                logger.warning(f"Webhook error: {e}")
+                return web.Response(status=400, text="Error")
 
+        # Short webhook handler (with secret)
         async def handle_tg_short(request: web.Request):
-            # Validate secret token if configured
             if WEBHOOK_SECRET:
-                got = request.headers.get('X-Telegram-Bot-Api-Secret-Token')
-                if got != WEBHOOK_SECRET:
-                    logger.warning("Webhook short path: invalid secret token")
-                    return web.Response(status=403, text='Forbidden')
-            data = await request.json()
-            logger.info("Webhook hit: received update (short path)")
-            await _process_update_payload(data)
-            return web.Response(text='OK')
-
-        aio.router.add_get('/health', handle_health)
+                secret = request.headers.get('X-Telegram-Bot-Api-Secret-Token')
+                if secret != WEBHOOK_SECRET:
+                    return web.Response(status=403, text="Forbidden")
+            return await handle_tg(request)
 
         # YooKassa webhook and return endpoints
         async def handle_yk_webhook(request: web.Request):
@@ -1911,65 +1644,49 @@ window.addEventListener('load', function(){
                 logger.warning(f"Fallback set_webhook failed: {e2}")
                 heal_expected_url = webhook_url
         # Graceful stop support
-        stop_event = asyncio.Event()
+        def signal_handler(signum, frame):
+            logger.info(f"Received signal {signum}, shutting down...")
+            asyncio.create_task(shutdown())
 
-        loop = asyncio.get_running_loop()
-
-        def _handle_stop():
+        async def shutdown():
             try:
-                stop_event.set()
+                heal_task.cancel()
+                await heal_task
             except Exception:
                 pass
+            await application.stop()
+            await application.shutdown()
+            await runner.cleanup()
 
-        try:
-            loop.add_signal_handler(signal.SIGTERM, _handle_stop)
-            loop.add_signal_handler(signal.SIGINT, _handle_stop)
-        except NotImplementedError:
-            # Signals not available (e.g., on Windows) - ignore
-            pass
+        signal.signal(signal.SIGINT, signal_handler)
+        signal.signal(signal.SIGTERM, signal_handler)
 
-        # Background self-heal task
-        async def webhook_self_heal():
-            nonlocal heal_expected_url
-            interval = int(os.environ.get('WEBHOOK_HEALTH_INTERVAL_SECS', '60'))
+        # Health check task
+        async def health_check():
             while True:
                 try:
-                    await asyncio.sleep(interval)
+                    await asyncio.sleep(30)
                     info = await application.bot.get_webhook_info()
-                    expected = heal_expected_url or (short_url if WEBHOOK_SECRET else webhook_url)
-                    if not info.url or info.url != expected:
+                    if info.url != heal_expected_url:
+                        logger.warning(f"Webhook URL mismatch: expected {heal_expected_url}, got {info.url}")
                         try:
                             if WEBHOOK_SECRET:
-                                await application.bot.set_webhook(short_url, secret_token=WEBHOOK_SECRET, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
-                                logger.info("Webhook self-healed to short path")
-                                heal_expected_url = short_url
+                                await application.bot.set_webhook(heal_expected_url, secret_token=WEBHOOK_SECRET, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
                             else:
-                                await application.bot.set_webhook(webhook_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
-                                logger.info("Webhook self-healed to token path")
-                                heal_expected_url = webhook_url
-                        except Exception as se:
-                            logger.warning(f"Webhook self-heal error: {se}")
-                except asyncio.CancelledError:
-                    break
-                except Exception as he:
-                    logger.warning(f"Webhook health loop error: {he}")
+                                await application.bot.set_webhook(heal_expected_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                            logger.info(f"Webhook restored to: {heal_expected_url}")
+                        except Exception as e:
+                            logger.warning(f"Webhook restore failed: {e}")
+                except Exception as e:
+                    logger.warning(f"Health check error: {e}")
 
-        heal_task = asyncio.create_task(webhook_self_heal())
+        heal_task = asyncio.create_task(health_check())
 
         try:
-            await stop_event.wait()
+            await asyncio.Event().wait()
+        except KeyboardInterrupt:
+            logger.info("Shutdown requested")
         finally:
-            try:
-                await application.bot.delete_webhook(drop_pending_updates=False)
-            except Exception:
-                pass
-            # Flush all states before shutdown
-            if persistence:
-                try:
-                    persistence.flush_all(user_states)
-                    logger.info(f"States flushed: {len(user_states)}")
-                except Exception as e:
-                    logger.warning(f"States flush error: {e}")
             try:
                 heal_task.cancel()
                 await heal_task
