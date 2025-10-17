@@ -1,0 +1,500 @@
+                    f"ip_address: {getattr(info, 'ip_address', '-') }\n"
+                    f"last_error_date: {getattr(info, 'last_error_date', '-') }\n"
+                    f"last_error_message: {getattr(info, 'last_error_message', '-') }"
+                )
+                await update.message.reply_text(f"Webhook info:\n{txt}")
+            except Exception as e:
+                await update.message.reply_text(f"diag_webhook error: {e}")
+
+        async def reset_webhook(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            if update.effective_user.id != ADMIN_CHAT_ID:
+                return
+            try:
+                base_url = os.environ.get('WEBHOOK_BASE_URL') or os.environ.get('RENDER_EXTERNAL_URL')
+                if not base_url:
+                    await update.message.reply_text('WEBHOOK_BASE_URL/RENDER_EXTERNAL_URL не задан')
+                    return
+                url_path = f"/webhook/{BOT_TOKEN}"
+                webhook_url = base_url.rstrip('/') + url_path
+                await application.bot.set_webhook(webhook_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                info = await application.bot.get_webhook_info()
+                await update.message.reply_text(f"Webhook reset to: {info.url}\nPending: {info.pending_update_count}")
+            except Exception as e:
+                await update.message.reply_text(f"reset_webhook error: {e}")
+
+        application.add_handler(CommandHandler("diag_webhook", diag_webhook))
+        application.add_handler(CommandHandler("reset_webhook", reset_webhook))
+
+        # Admin: export subscriptions (CSV-like to chat for now)
+        async def export_subscriptions(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            if update.effective_user.id != ADMIN_CHAT_ID:
+                return
+            rows = []
+            for uid, st in user_states.items():
+                rows.append(
+                    f"{uid}, {st.get('username','')}, {st.get('is_subscribed',False)}, {st.get('subscription_until','')}"
+                )
+            if not rows:
+                await update.message.reply_text("Нет данных подписок")
+            else:
+                head = "user_id, username, is_subscribed, subscription_until\n"
+                await update.message.reply_text(head + "\n".join(rows))
+
+        # Admin: quick state peek
+        async def state_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            if update.effective_user.id != ADMIN_CHAT_ID:
+                return
+            if not context.args:
+                await update.message.reply_text("Использование: /state <user_id>")
+                return
+            try:
+                uid = int(context.args[0])
+                st = user_states.get(uid)
+                if not st:
+                    await update.message.reply_text("Пользователь не найден в памяти")
+                    return
+                keys = ['scenario','interview_stage','free_used','daily_requests','last_date','is_subscribed','subscription_until']
+                lines = [f"{k}: {st.get(k)}" for k in keys]
+                await update.message.reply_text("\n".join(lines))
+            except Exception as e:
+                await update.message.reply_text(f"state error: {e}")
+
+        # Admin: backup states (flush all to Sheets)
+        async def backup_states(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            if update.effective_user.id != ADMIN_CHAT_ID:
+                return
+            try:
+                if persistence:
+                    persistence.flush_all(user_states)
+                    await update.message.reply_text(f"Сохранено состояний: {len(user_states)}")
+                else:
+                    await update.message.reply_text("Persistence отключен")
+            except Exception as e:
+                await update.message.reply_text(f"backup error: {e}")
+
+        application.add_handler(CommandHandler("export_subscriptions", export_subscriptions))
+        application.add_handler(CommandHandler("state", state_cmd))
+        application.add_handler(CommandHandler("backup_states", backup_states))
+
+        # === Billing/Payments Handlers ===
+        async def send_invoice(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            user_id = update.effective_user.id
+            if user_id not in user_states:
+                await start(update, context); return
+            # Price: Telegram expects integer of the smallest currency unit (kopecks)
+            total_kopecks = int(round(VLASTA_PRICE_RUB * 100))
+            prices = [LabeledPrice(label="Доступ на 7 дней к Vlasta", amount=total_kopecks)]
+
+            # Provider data with receipt items and tax system (ЮКасса сформирует чек, email спросит на платёжной форме)
+            provider_data = {
+                "capture": True,
+                "receipt": {
+                    # customer email/phone не передаём — включим need_email/send_email_to_provider
+                    "items": [
+                        {
+                            "description": "Доступ к Vlasta на 7 дней",
+                            "quantity": 1,
+                            "amount": {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"},
+                            "vat_code": VAT_CODE,
+                            "payment_mode": "full_payment",
+                            "payment_subject": "service"
+                        }
+                    ],
+                    "tax_system_code": TAX_SYSTEM_CODE
+                }
+            }
+
+            # Inline keyboard: Telegram pay and external YooKassa Smart Payment
+            await context.bot.send_invoice(
+                chat_id=user_id,
+                title="Vlasta — доступ на 7 дней",
+                description=(
+                    "Неделя персональной стратегической работы: ежедневные сессии,\n"
+                    "разбор реальных ситуаций и инструменты влияния."
+                ),
+                payload=f"vlasta_week_{user_id}_{int(time.time())}",
+                provider_token=PAYMENT_PROVIDER_TOKEN,
+                currency="RUB",
+                prices=prices,
+                need_email=True,
+                send_email_to_provider=True,
+                need_phone_number=False,
+                send_phone_number_to_provider=False,
+                provider_data=json.dumps(provider_data, ensure_ascii=False)
+            )
+            # Отправляем ссылку СБП отдельным сообщением (прямая URL-кнопка)
+            await send_sbp_link(context, user_id)
+
+        async def precheckout_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            query = update.pre_checkout_query
+            try:
+                await query.answer(ok=True)
+            except Exception:
+                await query.answer(ok=False, error_message="Ошибка при обработке оплаты. Попробуйте позже.")
+
+        async def successful_payment_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            user_id = update.effective_user.id
+            state = user_states.get(user_id)
+            if not state:
+                return
+            # Activate 7-day subscription window
+            until = (datetime.now(MSK_TZ) + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')
+            state['is_subscribed'] = True
+            state['subscription_until'] = until
+            state['last_payment_id'] = getattr(update.message.successful_payment, 'provider_payment_charge_id', '')
+            # Reset scenario counters if needed
+            state['daily_requests'] = 0
+            state['free_used'] = 0
+            state['limit_notified'] = False
+            state['subscription_end_notified'] = False
+            # Persist immediately
+            if persistence:
+                try:
+                    state['last_activity_at'] = now_msk_str()
+                    persistence.save_user_state(user_id, state, force=True)
+                except Exception as e:
+                    logger.warning(f"Persist after payment error: {e}")
+            # Send subscription welcome if scenario provides
+            scenario_cfg = SCENARIOS.get(state.get('scenario')) if state.get('scenario') else None
+            sub_welcome = scenario_cfg.get('subscription_welcome') if scenario_cfg else None
+            if sub_welcome:
+                await update.message.reply_text(sub_welcome)
+            else:
+                await update.message.reply_text(
+                    "Оплата успешно получена. Доступ на 7 дней активирован."
+                )
+
+        application.add_handler(CommandHandler("buy", send_invoice))
+        application.add_handler(PreCheckoutQueryHandler(precheckout_callback))
+        application.add_handler(MessageHandler(filters.SUCCESSFUL_PAYMENT, successful_payment_handler))
+
+        # Admin: check last invoice status (diagnostics)
+        async def check_invoice(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            if update.effective_user.id != ADMIN_CHAT_ID:
+                return
+            uid = update.effective_user.id
+            st = user_states.get(uid)
+            if not st or not st.get('last_invoice_id'):
+                await update.message.reply_text("Нет последнего invoice_id")
+                return
+            try:
+                from yookassa.invoice import Invoice as YKInvoice
+                inv = YKInvoice.find_one(st['last_invoice_id'])
+                status = getattr(inv, 'status', '-')
+                pay_id = getattr(getattr(inv, 'payment_details', None), 'id', '-') if hasattr(inv, 'payment_details') else '-'
+                await update.message.reply_text(f"invoice_id: {st['last_invoice_id']}\nstatus: {status}\npayment_id: {pay_id}")
+            except Exception as e:
+                await update.message.reply_text(f"check_invoice error: {e}")
+
+        application.add_handler(CommandHandler("check_invoice", check_invoice))
+
+        # Callback for external YooKassa Smart Payment (create redirect payment)
+        async def on_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            if not update.callback_query:
+                return
+            cq = update.callback_query
+            data = cq.data or ''
+            if not data.startswith('yk_redirect:'):
+                return
+            await cq.answer()
+            if not (YOOKASSA_ACCOUNT_ID and YOOKASSA_SECRET_KEY and YOOKASSA_RETURN_URL):
+                await cq.message.reply_text("Ссылка на оплату временно недоступна")
+                return
+            try:
+                try:
+                    from yookassa import Payment as YKPayment  # lazy import
+                except Exception as ie:
+                    await cq.message.reply_text("Модуль оплаты временно недоступен. Повторите попытку позже.")
+                    return
+                uid = update.effective_user.id
+                st = user_states.setdefault(uid, {})
+                receipt_email = (st.get('receipt_email') or '').strip()
+                if not receipt_email:
+                    st['awaiting_receipt_contact'] = True
+                    await cq.message.reply_text("Чтобы сформировать чек, укажи e-mail в формате: email: ваш@почта.ру")
+                    return
+                # Create redirect payment with capture and receipt
+                payment = YKPayment.create({
+                    "amount": {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"},
+                    "confirmation": {"type": "redirect", "return_url": YOOKASSA_RETURN_URL},
+                    "capture": True,
+                    "description": "Vlasta — доступ на 7 дней",
+                    "metadata": {"telegram_user_id": str(uid), "scenario": user_states.get(uid, {}).get('scenario', 'Vlasta')},
+                    "receipt": {
+                        "items": [{
+                            "description": "Доступ к Vlasta на 7 дней",
+                            "quantity": "1.0",
+                            "amount": {"value": f"{VLASTA_PRICE_RUB:.2f}", "currency": "RUB"},
+                            "vat_code": VAT_CODE,
+                            "payment_mode": "full_payment",
+                            "payment_subject": "service"
+                        }],
+                        "tax_system_code": TAX_SYSTEM_CODE,
+                        "customer": {"email": receipt_email}
+                    }
+                })
+                conf = payment.confirmation
+                url = getattr(conf, 'confirmation_url', None)
+                if url:
+                    await cq.message.reply_text("Оплатить через ЮKassa (СБП):\n" + url)
+                else:
+                    await cq.message.reply_text("Не удалось получить ссылку на оплату")
+            except Exception as e:
+                await cq.message.reply_text(f"Ошибка создания оплаты: {e}")
+
+        application.add_handler(CallbackQueryHandler(on_callback, pattern=r'^yk_redirect:'))
+
+        # Command: /sbp — выдаёт СБП ссылку вручную
+        async def sbp_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            uid = update.effective_user.id
+            await send_sbp_link(context, uid)
+        application.add_handler(CommandHandler("sbp", sbp_cmd))
+
+        # Restore states at startup (last 14 days)
+        restored = 0
+        if persistence:
+            try:
+                all_states = persistence.load_all_states()
+                for uid, st in all_states.items():
+                    last_at = st.get('last_activity_at') or st.get('updated_at')
+                    ok = True
+                    if last_at:
+                        try:
+                            dt = datetime.strptime(last_at, '%Y-%m-%d %H:%M:%S')
+                            ok = (datetime.now(MSK_TZ) - dt).days <= 14
+                        except Exception:
+                            ok = True
+                    if ok:
+                        # ensure required fields
+                        st.setdefault('conversation_history', [])
+                        st.setdefault('interview_answers', [])
+                        st.setdefault('interview_stage', 0)
+                        st.setdefault('daily_requests', 0)
+                        st.setdefault('custom_limit', 10)
+                        st.setdefault('free_used', 0)
+                        user_states[uid] = st
+                        restored += 1
+                try:
+                    removed = persistence.prune_old(14)
+                    if removed:
+                        logger.info(f"States pruned: {removed}")
+                except Exception:
+                    pass
+            except Exception as e:
+                logger.warning(f"States restore error: {e}")
+        logger.info(f"States restored: {restored}")
+
+        port = int(os.environ.get('PORT', '10000'))
+        base_url = os.environ.get('WEBHOOK_BASE_URL') or os.environ.get('RENDER_EXTERNAL_URL')
+        if not base_url:
+            raise RuntimeError('WEBHOOK_BASE_URL/RENDER_EXTERNAL_URL не задан')
+        url_path = f"/webhook/{BOT_TOKEN}"
+        webhook_url = base_url.rstrip('/') + url_path
+        logger.info(f"Webhook: {webhook_url} on port {port}")
+
+        # aiohttp app
+        aio = web.Application()
+
+        async def handle_health(request: web.Request):
+            return web.Response(text='OK')
+
+        async def _process_update_payload(data: dict):
+            try:
+                upd = Update.de_json(data, application.bot)
+                await application.process_update(upd)
+            except Exception as e:
+                logger.exception(f"Update processing error: {e}")
+
+        async def handle_tg(request: web.Request):
+            data = await request.json()
+            logger.info("Webhook hit: received update (token path)")
+            await _process_update_payload(data)
+            return web.Response(text='OK')
+
+        async def handle_tg_short(request: web.Request):
+            # Validate secret token if configured
+            if WEBHOOK_SECRET:
+                got = request.headers.get('X-Telegram-Bot-Api-Secret-Token')
+                if got != WEBHOOK_SECRET:
+                    logger.warning("Webhook short path: invalid secret token")
+                    return web.Response(status=403, text='Forbidden')
+            data = await request.json()
+            logger.info("Webhook hit: received update (short path)")
+            await _process_update_payload(data)
+            return web.Response(text='OK')
+
+        aio.router.add_get('/health', handle_health)
+
+        # YooKassa webhook and return endpoints
+        async def handle_yk_webhook(request: web.Request):
+            try:
+                body = await request.json()
+            except Exception:
+                return web.Response(status=400, text='bad json')
+            try:
+                obj = body.get('object') or {}
+                if obj.get('status') == 'succeeded':
+                    meta = obj.get('metadata') or {}
+                    uid_str = meta.get('telegram_user_id')
+                    if uid_str and uid_str.isdigit():
+                        uid = int(uid_str)
+                        st = user_states.get(uid)
+                        if st:
+                            until = (datetime.now(MSK_TZ) + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')
+                            st['is_subscribed'] = True
+                            st['subscription_until'] = until
+                            st['limit_notified'] = False
+                            st['subscription_end_notified'] = False
+                            if persistence:
+                                try:
+                                    st['last_activity_at'] = now_msk_str()
+                                    persistence.save_user_state(uid, st, force=True)
+                                except Exception:
+                                    pass
+                            # Send welcome
+                            scen = SCENARIOS.get(st.get('scenario')) if st.get('scenario') else None
+                            msg = scen.get('subscription_welcome') if scen else "Оплата получена, доступ активирован."
+                            try:
+                                await application.bot.send_message(chat_id=uid, text=msg)
+                            except Exception:
+                                pass
+                return web.Response(text='OK')
+            except Exception:
+                return web.Response(status=500, text='error')
+
+        async def handle_yk_return(request: web.Request):
+            html = """
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Оплата завершена</title>
+<!-- VK Pixel -->
+<script>
+!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?168";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
+</script>
+<script>
+window.addEventListener('load', function(){
+  if (typeof VK !== 'undefined' && VK.Retargeting) {
+    try { VK.Retargeting.Init('REPLACE_VK_PIXEL_ID'); VK.Retargeting.Hit(); } catch(e) {}
+  }
+});
+</script>
+</head>
+<body style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial; margin:40px;">
+  <h2>Спасибо!</h2>
+  <p>Если оплата прошла, доступ уже активирован в чате Telegram.</p>
+  <p>Можно закрыть эту страницу.</p>
+</body></html>
+"""
+            html = html.replace('REPLACE_VK_PIXEL_ID', VK_PIXEL_ID)
+            return web.Response(text=html, content_type='text/html')
+
+        aio.router.add_post('/yookassa/webhook', handle_yk_webhook)
+        aio.router.add_get('/pay/return', handle_yk_return)
+        aio.router.add_post(url_path, handle_tg)          # token path
+        aio.router.add_post('/webhook', handle_tg_short)   # short alias path
+
+        # Start app and webhook
+        await application.initialize()
+        await application.start()
+        runner = web.AppRunner(aio)
+        await runner.setup()
+        site = web.TCPSite(runner, '0.0.0.0', port)
+        await site.start()
+        logger.info('Aiohttp server started')
+        # Prefer short path with secret if configured; fallback to token path; don't crash on failure
+        short_url = base_url.rstrip('/') + '/webhook'
+        # default expected url
+        heal_expected_url = short_url if WEBHOOK_SECRET else webhook_url
+        try:
+            if WEBHOOK_SECRET:
+                await application.bot.set_webhook(short_url, secret_token=WEBHOOK_SECRET, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                heal_expected_url = short_url
+                logger.info(f"Webhook set to short path with secret: {short_url}")
+            else:
+                await application.bot.set_webhook(webhook_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                heal_expected_url = webhook_url
+                logger.info(f"Webhook set to token path: {webhook_url}")
+        except Exception as e:
+            logger.warning(f"Initial set_webhook failed: {e}")
+            try:
+                await application.bot.set_webhook(webhook_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                heal_expected_url = webhook_url
+                logger.info(f"Webhook fallback to token path: {webhook_url}")
+            except Exception as e2:
+                logger.warning(f"Fallback set_webhook failed: {e2}")
+                heal_expected_url = webhook_url
+        # Graceful stop support
+        stop_event = asyncio.Event()
+
+        loop = asyncio.get_running_loop()
+
+        def _handle_stop():
+            try:
+                stop_event.set()
+            except Exception:
+                pass
+
+        try:
+            loop.add_signal_handler(signal.SIGTERM, _handle_stop)
+            loop.add_signal_handler(signal.SIGINT, _handle_stop)
+        except NotImplementedError:
+            # Signals not available (e.g., on Windows) — ignore
+            pass
+
+        # Background self-heal task
+        async def webhook_self_heal():
+            nonlocal heal_expected_url
+            interval = int(os.environ.get('WEBHOOK_HEALTH_INTERVAL_SECS', '60'))
+            while True:
+                try:
+                    await asyncio.sleep(interval)
+                    info = await application.bot.get_webhook_info()
+                    expected = heal_expected_url or (short_url if WEBHOOK_SECRET else webhook_url)
+                    if not info.url or info.url != expected:
+                        try:
+                            if WEBHOOK_SECRET:
+                                await application.bot.set_webhook(short_url, secret_token=WEBHOOK_SECRET, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                                logger.info("Webhook self-healed to short path")
+                                heal_expected_url = short_url
+                            else:
+                                await application.bot.set_webhook(webhook_url, drop_pending_updates=False, allowed_updates=Update.ALL_TYPES)
+                                logger.info("Webhook self-healed to token path")
+                                heal_expected_url = webhook_url
+                        except Exception as se:
+                            logger.warning(f"Webhook self-heal error: {se}")
+                except asyncio.CancelledError:
+                    break
+                except Exception as he:
+                    logger.warning(f"Webhook health loop error: {he}")
+
+        heal_task = asyncio.create_task(webhook_self_heal())
+
+        try:
+            await stop_event.wait()
+        finally:
+            try:
+                await application.bot.delete_webhook(drop_pending_updates=False)
+            except Exception:
+                pass
+            # Flush all states before shutdown
+            if persistence:
+                try:
+                    persistence.flush_all(user_states)
+                    logger.info(f"States flushed: {len(user_states)}")
+                except Exception as e:
+                    logger.warning(f"States flush error: {e}")
+            try:
+                heal_task.cancel()
+                await heal_task
+            except Exception:
+                pass
+            await application.stop()
+            await application.shutdown()
+            await runner.cleanup()
+
+    try:
+        asyncio.run(run_server())
+    except Exception as e:
+        logger.exception(f"Startup error: {e}")
