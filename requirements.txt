@@ -1,6 +1,10 @@
 python-telegram-bot==20.7
-aiohttp==3.9.5
-gspread==6.0.0
+gspread==5.12.4
 google-auth==2.23.4
-google-auth-oauthlib==1.2.0
-yookassa==3.7.1
+google-auth-oauthlib==1.1.0
+google-auth-httplib2==0.1.1
+Pillow==10.1.0
+qrcode==7.4.2
+opencv-python==4.8.1.78
+pyzbar==0.1.9
+python-dotenv==1.0.0
